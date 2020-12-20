@@ -3,7 +3,7 @@ import itertools
 from scipy.stats import norm
 
 
-def compute_sdt(data,sig,sig_val,no_sig_val,response,group = [], csv = ""): 
+def compute_sdt(data,sig,sig_val,no_sig_val,response,group = [], csv = False, csv_p = "sdt_stats"): 
     """
     Computes signal detection theory measures
 
@@ -27,8 +27,11 @@ def compute_sdt(data,sig,sig_val,no_sig_val,response,group = [], csv = ""):
     group: list, optional 
         a list of factors to group the statistics such as participant no or difficulty level.
         
-    csv: string, optional 
-        path of the csv output of the dataframe containing the SDT statistics.
+    csv: boolean
+        give a csv output (default False)
+    
+    csv_p: string, optional
+        name of csv output file (default "sdt_stats")
     
     Returns
     -------
@@ -70,6 +73,6 @@ def compute_sdt(data,sig,sig_val,no_sig_val,response,group = [], csv = ""):
         sdt_stats.loc[row_c,main_column_names] = stats_to_add
     
     if csv:
-        sdt_stats.to_csv(csv,index=False)
+        sdt_stats.to_csv(csv_p,index=False)
 
     return sdt_stats
