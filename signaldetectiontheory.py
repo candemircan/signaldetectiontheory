@@ -3,7 +3,7 @@ import itertools
 from scipy.stats import norm
 
 
-def compute_sdt(data,sig,sig_val,no_sig_val,response,group = [], csv = False, csv_p = "sdt_stats"): 
+def compute_sdt(data,sig,sig_val,no_sig_val,response,group = [], csv = False, csv_p = "sdt_stats.csv"): 
     """
     Computes signal detection theory measures
 
